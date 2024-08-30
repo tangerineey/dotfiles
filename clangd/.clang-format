@@ -1,0 +1,4 @@
+# Put this in the home directory for global clang settings
+BasedOnStyle: Webkit
+IncludeBlocks: Preserve
+SortIncludes: Never
