@@ -1,3 +1,6 @@
 keybinding:
   universal:
     filteringMenu: '<c-b>'
+
+git:
+  autoForwardBranches: none
