@@ -113,6 +113,7 @@ bindkey -s '^o' 'lfcd\n'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nv="nvim"
+alias tnew='tmux new -s "$(basename "$PWD")"'
 
 # Change working dir in shell to last dir in lf on exit (adapted from ranger).
 #
