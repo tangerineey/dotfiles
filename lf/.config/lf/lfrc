@@ -36,3 +36,23 @@ cmd bulk-rename ${{
     lf -remote "send $id unselect"
 }}
 map R bulk-rename
+
+cmd tnew ${{
+    if [ -d "$f" ]; then
+        dir="$f"
+        name="$(basename -- "$dir" | tr ' :/' '___')"
+
+        # create the session if it doesn't exist (detached)
+        if ! tmux has-session -t "=$name" 2>/dev/null; then
+            tmux new-session -ds "$name" -c "$dir"
+        fi
+
+        # attach or switch depending on whether we're already in tmux
+        if [ -n "$TMUX" ]; then
+            tmux switch-client -t "=$name"
+        else
+            tmux attach -t "$name"
+        fi
+    fi
+}}
+map T tnew
